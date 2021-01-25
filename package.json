@@ -1,0 +1,37 @@
+{
+  "name": "networked-hyperbeedown",
+  "version": "1.0.0",
+  "description": "LevelDB-compatible module for loading p2p databases using hyperbee and hyperswarm",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --fix && node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RangerMauve/networked-hyperbeedown.git"
+  },
+  "keywords": [
+    "hyperbee",
+    "level",
+    "levedb",
+    "p2p",
+    "database",
+    "db"
+  ],
+  "author": "rangermauve <ranger@mauve.moe> (https://mauve.moe/)",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/RangerMauve/networked-hyperbeedown/issues"
+  },
+  "homepage": "https://github.com/RangerMauve/networked-hyperbeedown#readme",
+  "dependencies": {
+    "hyper-sdk": "^3.0.3",
+    "hyperbee": "^1.3.0",
+    "hyperbeedown": "^2.0.1"
+  },
+  "devDependencies": {
+    "levelup": "^4.4.0",
+    "standard": "^16.0.3",
+    "tape": "^5.1.1"
+  }
+}
