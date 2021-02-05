@@ -20,22 +20,33 @@ module.exports = function makeNetworkedHypercore (opts = {}) {
       return close()
     }
 
-    constructor (url) {
-      super()
+    constructor (url, opts = {}) {
+      super(opts)
+      this.__opts = opts
       this._url = url
     }
 
+    async _networkOpen () {
+      await _init()
+      const core = Hypercore(this._url, this.__opts)
+      const tree = new Hyperbee(core, this.__opts)
+      this.core = core
+      this.tree = tree
+      await this.tree.ready()
+    }
+
     async _open (_, cb) {
-      try {
-        await _init()
-        const core = Hypercore(this._url)
-        const tree = new Hyperbee(core)
-        this.core = core
-        this.tree = tree
-        await this.tree.ready()
-        cb()
-      } catch (e) {
-        cb(e)
+      if (this._isLoading) {
+        try {
+          await this._isLoading
+          this._isLoading = null
+          cb()
+        } catch (e) {
+          cb(e)
+        }
+      } else {
+        this._isLoading = this._networkOpen()
+        this._open(_, cb)
       }
     }
 
