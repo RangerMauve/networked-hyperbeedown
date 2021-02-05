@@ -13,7 +13,9 @@ const { once } = require('events')
 
 const NetworkedHyperbeedown = require('networked-hyperbeedown')()
 
-const down = new NetworkedHyperbeedown('hyper://someurlhere')
+const down = new NetworkedHyperbeedown('hyper://someurlhere', {
+  keyEncoding: 'utf-8'
+})
 
 const db = levelup(db)
 
