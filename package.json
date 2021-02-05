@@ -1,6 +1,6 @@
 {
   "name": "networked-hyperbeedown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "LevelDB-compatible module for loading p2p databases using hyperbee and hyperswarm",
   "main": "index.js",
   "scripts": {
