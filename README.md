@@ -17,7 +17,7 @@ const down = new NetworkedHyperbeedown('hyper://someurlhere', {
   keyEncoding: 'utf-8'
 })
 
-const db = levelup(db)
+const db = levelup(down)
 
 await db.open()
 
